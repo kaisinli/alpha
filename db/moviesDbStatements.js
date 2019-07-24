@@ -6,7 +6,7 @@ const createMoviesDB = () => {
     })
 }
 
-const insertMovie = (name, rating, comment) => {
+const saveMovie = (name, rating, comment) => {
     db.serialize(function () {
         let stmt = db.prepare("INSERT INTO movies VALUES (?,?,?,?)");
         stmt.run(name, rating, comment, 0);
@@ -14,7 +14,7 @@ const insertMovie = (name, rating, comment) => {
     })
 }
 
-const UpdateMovie = (name, rating, comment) => {
+const updateMovie = (name, rating, comment) => {
     db.serialize(function () {
         let stmt = db.prepare(
             `UPDATE movies
@@ -25,4 +25,4 @@ const UpdateMovie = (name, rating, comment) => {
     })
 }
 
-module.exports = {createMoviesDB, insertMovie, updateMovie}
+module.exports = {createMoviesDB, saveMovie, updateMovie}

@@ -6,7 +6,11 @@ const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
-const db = require('./db');
+const db = require('./db')
+
+const {createMoviesDB} = require('./db/moviesDbStatements')
+
+createMoviesDB();
 
 //templating
 app.set('view engine', 'html');
@@ -22,11 +26,14 @@ app.use(bodyParser.json());
 //creating db
 
 
+// api
+const MovieRouter = require('./server/moviesApi');
 
 app
     .get('/', (req, res) => {
         res.render('index')
     })
+    .use('/movies', MovieRouter)
 
 // error handling endware
 app.use((err, req, res, next) => {

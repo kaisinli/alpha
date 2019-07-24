@@ -8,6 +8,9 @@
         body {
             padding-top: 50px;
         }
+        button {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -15,11 +18,9 @@
     <div class="container">
         <div class="jumbotron text-center">
             <h3>Search For A Movie</h1>
-            <!-- Search form -->
             <div class="md-form">
-                <!--for the purpose of this project, below will only query for user foo-->
-                <form method="GET" action="/users/foo">
-                    Movie Name: <input type="text" name="movie-name">
+                <form method="POST" action="/movies">
+                    Movie Name: <input type="text" name = "name">
                     <input type="submit" value="Go">
                 </form>  
             </div>
