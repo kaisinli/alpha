@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Movies!</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h3>Search For A Movie</h1>
+            <!-- Search form -->
+            <div class="md-form">
+                <!--for the purpose of this project, below will only query for user foo-->
+                <form method="GET" action="/users/foo">
+                    Movie Name: <input type="text" name="movie-name">
+                    <input type="submit" value="Go">
+                </form>  
+            </div>
+            <button>See Saved Movies</button>
+        </div>
+        <div class="search-result">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</body>
+
+</html>
