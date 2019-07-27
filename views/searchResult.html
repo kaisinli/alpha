@@ -1,0 +1,20 @@
+{% extends "index.html" %} {% block content %}
+<h3>Result:</h3>
+<hr>
+<div>
+    <img src={{result.Poster}}>
+</div>
+<div>
+    <ul>
+        <li><b>Title:</b> {{result.Title}}</li>
+        <li><b>Release Year:</b> {{result.Year}}</li>
+        <li><b>Country:</b> {{result.Country}}</li>
+        <li><b>Director:</b> {{result.Director}}</li>
+        <li><b>Writer:</b> {{result.Writer}}</li>
+        <li><b>Starring:</b> {{result.Actors}}</li>
+        <li><b>Summary:</b> {{result.Plot}}</li>
+        <br />
+    </ul>
+</div>
+
+{% endblock %}

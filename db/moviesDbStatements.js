@@ -3,6 +3,7 @@ const db = require('./index')
 const createMoviesDB = () => {
     db.serialize(function () {
         db.run(`CREATE TABLE movies (movieName TEXT, rating INTEGER, comment TEXT, deleted INTEGER)`);
+        console.log("Movie DB created.")
     })
 }
 
