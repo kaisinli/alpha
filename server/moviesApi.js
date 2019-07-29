@@ -1,15 +1,12 @@
 const router = require('express').Router();
 const request = require('request');
 const db = require('../db');
-const multer = require('multer');
 const OMDB_API_KEY = require('../apiKey')
 const OMDB_API = "http://www.omdbapi.com"
 
 const { saveMovie, updateMovie, fetchSavedMovies } = require('../db/moviesDbStatements')
 
-const upload = multer();
-
-router.post('/', upload.fields([]), (req, res, next) => {
+router.post('/', (req, res, next) => {
     let title = req.body.name
     request.post(`${OMDB_API}/?apikey=${OMDB_API_KEY}&t=${title}`, (err, response) => {
         if (err) {
