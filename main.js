@@ -5,25 +5,12 @@ const app = express();
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const path = require('path');
-const db = require('./db')
+const path = require('path'); 
 
-const {createMoviesDB, fetchSavedMovies} = require('./db/moviesDbStatements')
+const {createMoviesTable, checkTableExist} = require('./db/moviesDbStatements')
 
-
-db.serialize(() => {
-    db.all(fetchSavedMovies, (err, results) => {
-        if (err) {
-            console.log(err);
-            return next(err);
-        }
-
-        if(!results){
-            createMoviesDB();
-        }
-    });
-});
-
+//create db
+createMoviesTable();
 
 //templating
 app.set('view engine', 'html');

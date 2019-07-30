@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="index.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
@@ -18,27 +15,19 @@
             <div class="md-form">
                 <form method="POST" action="/movies">
                     Movie Name: <input type="text" name="name">
-
-                    <h3>Search For A Movie</h1>
-                        <div class="md-form">
-                            <form method="POST" action="/movies">
-                                Movie Name: <input type="text" name="name">
-                                <h2>Search For A Movie <i>(exact title)</i></h2>
-                                <div class="md-form">
-                                    <form method="POST" action="/movies">
-                                        Movie Name: <input type="text" name="name">
-                                        <input type="submit" value="Go">
-                                    </form>
-                                    <form method="GET" action="/movies/favorites">
-                                        <button id="save-movie-button">See Saved Movies</button>
-                                    </form>
-                                </div>
-                        </div>
-                        <div>
-                            {% block content %}{% endblock %}
-                        </div>
-
+                    <input type="submit" value="Go">
+                </form>
+                <form method="GET" action="/movies/favorites">
+                    <button id="save-movie-button">See Saved Movies</button>
+                </form>
             </div>
+        </div>
+        <div>
+            {% block content %}{% endblock %}
+        </div>
+
+    </div>
 
 </body>
+
 </html>

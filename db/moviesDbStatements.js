@@ -1,15 +1,14 @@
 const db = require('./index')
 
-const createMoviesDB = () => {
-    db.serialize(function () {
-        db.run(`CREATE TABLE favorites (movieName TEXT, rating INTEGER, comment TEXT`);
+const createMoviesTable = () => {
+    db.serialize(() => {
+        db.run(`CREATE TEMPORARY TABLE favorites (movieName TEXT, rating INTEGER, comment TEXT)`);
         console.log("Movie DB created.")
-        db.close()
     })
 }
 
-const saveMovie = "INSERT INTO movies VALUES (?,?,?)"
-const updateMovie = "UPDATE movies SET rating = ? WHERE movieName = ?"
-const fetchSavedMovies = "SELECT * FROM movies"
+const saveMovie = "INSERT INTO favorites VALUES (?,?,?)"
+const updateMovie = "UPDATE favorites SET rating = ? WHERE movieName = ?"
+const fetchSavedMovies = "SELECT * FROM favorites"
 
-module.exports = {createMoviesDB, saveMovie, updateMovie, fetchSavedMovies}
+module.exports = {createMoviesTable, saveMovie, updateMovie, fetchSavedMovies}

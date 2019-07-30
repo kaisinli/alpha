@@ -37,7 +37,6 @@ router.post('/favorites', (req, res, next) => {
         console.log(`Inserting ${movie.movie}...`)
         
         res.render('successful')
-        db.close();
     })
 })
 
