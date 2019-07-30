@@ -33,7 +33,7 @@ router.post('/favorites', (req, res, next) => {
             return next(err);
         }
 
-        console.log(`A row has been inserted with rowid ${this.lastID}`)
+        console.log(`Inserting ${movie.movie}...`)
 
         res.render('successful')
     })

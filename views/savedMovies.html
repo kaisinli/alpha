@@ -1,8 +1,22 @@
 {% extends "index.html" %} {% block content %}
-<h3>Result:</h3>
+<h3>Favorites:</h3>
 <hr>
 <div>
-   <h3>Favorites</h3>
-   
+   <div class="container-fluid">
+      <div class="row">
+         <h4 class="col-xs-6 col-md-4 saved-entry">Title</h4>
+         <h4 class="col-xs-6 col-md-4 saved-entry">Rating</h4>
+         <h4 class="col-xs-6 col-md-4 saved-entry">Comment</h4>
+      </div>
+   </div>
+   {%for result in results%}
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-xs-6 col-md-4 saved-entry">{{result.movieName}}</div>
+         <div class="col-xs-6 col-md-4 saved-entry">{{result.rating}}</div>
+         <div class="col-xs-6 col-md-4 saved-entry">{{result.comment}}</div>
+      </div>
+   </div>
+   {%endfor%}
 </div>
-{% endblock %}
+{% endblock %}Î
