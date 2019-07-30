@@ -3,49 +3,42 @@
 
 <head>
     <title>Movies!</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="index.css">
-=======
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <style>
-        body {
-            padding-top: 50px;
-        }
-        button {
-            margin-top: 10px;
-        }
-    </style>
->>>>>>> 862484d... api works
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
     <div class="container">
         <div class="jumbotron text-center">
-<<<<<<< HEAD
             <h2>Search For A Movie <i>(exact title)</i></h2>
             <div class="md-form">
                 <form method="POST" action="/movies">
                     Movie Name: <input type="text" name="name">
-=======
-            <h3>Search For A Movie</h1>
-            <div class="md-form">
-                <form method="POST" action="/movies">
-                    Movie Name: <input type="text" name = "name">
->>>>>>> 862484d... api works
-                    <input type="submit" value="Go">
-                </form>
-                <form method="GET" action="/movies/favorites">
-                    <button id="save-movie-button">See Saved Movies</button>
-                </form>
-            </div>
-        </div>
-        <div>
-            {% block content %}{% endblock %}
-        </div>
 
-    </div>
+                    <h3>Search For A Movie</h1>
+                        <div class="md-form">
+                            <form method="POST" action="/movies">
+                                Movie Name: <input type="text" name="name">
+                                <h2>Search For A Movie <i>(exact title)</i></h2>
+                                <div class="md-form">
+                                    <form method="POST" action="/movies">
+                                        Movie Name: <input type="text" name="name">
+                                        <input type="submit" value="Go">
+                                    </form>
+                                    <form method="GET" action="/movies/favorites">
+                                        <button id="save-movie-button">See Saved Movies</button>
+                                    </form>
+                                </div>
+                        </div>
+                        <div>
+                            {% block content %}{% endblock %}
+                        </div>
+
+            </div>
 
 </body>
 
