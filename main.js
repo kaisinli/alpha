@@ -8,10 +8,9 @@ const morgan = require('morgan');
 const path = require('path');
 const db = require('./db')
 
-const {createMoviesDB, fetchSavedMovies} = require('./db/moviesDbStatements')
+const {createMoviesDB} = require('./db/moviesDbStatements')
 
-//creating db
-createMoviesDB()
+createMoviesDB();
 
 //templating
 app.set('view engine', 'html');
