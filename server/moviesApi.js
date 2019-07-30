@@ -26,16 +26,18 @@ router.post('/', (req, res, next) => {
 })
 
 router.post('/favorites', (req, res, next) => {
-    const movie = req.body
+    const movie = req.body;
     db.run(saveMovie, [movie.movie, movie.rating, movie.review], (err) => {
+        console.log("Saving movie...")
         if (err) {
             console.log(err.message)
             return next(err);
         }
 
         console.log(`Inserting ${movie.movie}...`)
-
+        
         res.render('successful')
+        db.close();
     })
 })
 
@@ -48,18 +50,20 @@ router.put('/favorites', (req, res, next) => {
         }
 
         res.render('successful')
+        db.close();
     })
 })
 
 router.get('/favorites', (req, res, next) => {
     db.serialize(() => {
-        db.all(fetchSavedMovies, (err, results) => {
+        db.all(fetchSavedMovies, [], (err, results) => {
             if (err) {
                 console.log(err);
                 return next(err);
             }
 
             res.render('savedMovies', {results});
+            db.close();
         });
     });
 })

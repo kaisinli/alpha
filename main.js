@@ -8,9 +8,22 @@ const morgan = require('morgan');
 const path = require('path');
 const db = require('./db')
 
-const {createMoviesDB} = require('./db/moviesDbStatements')
+const {createMoviesDB, fetchSavedMovies} = require('./db/moviesDbStatements')
 
-createMoviesDB();
+
+db.serialize(() => {
+    db.all(fetchSavedMovies, (err, results) => {
+        if (err) {
+            console.log(err);
+            return next(err);
+        }
+
+        if(!results){
+            createMoviesDB();
+        }
+    });
+});
+
 
 //templating
 app.set('view engine', 'html');
